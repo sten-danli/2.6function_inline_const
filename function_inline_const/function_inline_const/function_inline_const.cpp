@@ -1,4 +1,4 @@
-
+//
 #include<iostream>
 using namespace std;
 
@@ -49,7 +49,29 @@ int main()
 	//constexpr(本课程2.3中常量介绍)函数可以看成是更严格的一种内联函数。
 	//constexr int mf(){...代码谢的特别简单，否则编译错误}。
 	//inline这种函数也有点类似宏这种函数(宏展开) #define ABC 一堆函数 用一堆宏替换函数语句。
+		
+	//四:const char* , char const*, char *const 三者的区别
+		char str[] = "I Love China!";
+		char str1[] = "I Love Beijing!";
+		
+		//const char *p 解析
+		const char *p = str;//但是指向地址的内容不可改变，指向可以改变。
+		p = str1;
+	//	*p = 'Y';	//指向地址的内容不可改变。
+		p++;
 
+		//char* const p 解析
+		char* const p1 = str1;//指向不可以改变， 但是指向内容可以改变。
+	//	 p1 = str;	//指向不可以改变.
+		p1[2] = 'Y';
 
+		//const 引用解析
+		int i = 100;
+		int b = 9898;
+		const int &a = i; //a的内容不能修改，
+		i = 888;
+		//a = 500; a的内容不能修改
 
+		//int& b = 31; 不合法。
+		const int &b = 31; //合法;
 }
